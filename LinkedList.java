@@ -90,7 +90,19 @@ public class LinkedList {
 			prepend(data);
 		else if (index == size)
 			append(data);
-
+		else {
+			Node n = new Node(data);
+			Node x = header.next;
+			int count = 1;
+			while (count != index - 1) {
+				x = x.next;
+				count++;
+			}
+			Node temp = x.next;
+			x.next = n;
+			n.next = temp;
+			size++;
+		}
 	}
 
 	public void removeAt(int index) {
